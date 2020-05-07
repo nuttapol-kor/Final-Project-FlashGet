@@ -1,0 +1,48 @@
+.root {
+    /*-fx-background-color: #e3e3e3;*/
+    -fx-padding: 15;
+    -fx-background-color: #00746b;
+}
+
+.progress-bar {
+    -fx-box-border: goldenrod;
+    -fx-background-color: #e3e3e3;
+    -fx-accent: rgb(177, 187, 28);
+}
+.label {
+    /*-fx-text-fill: #403e3f;*/
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    /*-fx-opacity: 0.6;*/
+    -fx-text-fill: #e3e3e3;
+}
+
+.button {
+    /*-fx-padding: 5 22 5 22;*/
+    /*-fx-border-color: #e2e2e2;*/
+    /*-fx-border-width: 2;*/
+    /*-fx-background-radius: 0;*/
+    /*-fx-background-color: #1d1d1d;*/
+    /*-fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;*/
+    /*-fx-font-size: 11pt;*/
+    /*-fx-text-fill: #d8d8d8;*/
+    /*-fx-background-insets: 0 0 0 0, 0, 1, 2;*/
+
+    /*-fx-background-color: #666465;*/
+    -fx-background-color: #e3e3e3;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #00746b;
+
+}
+.button:hover {
+    -fx-background-color: rgba(223, 223, 223, 0.74);
+}
+
+.button:pressed, .button:default:hover:pressed {
+    -fx-background-color: #a2a2a2;
+    -fx-text-fill: #00978e;
+}
+.text-field {
+    -fx-background-color: #e3e3e3;
+    -fx-text-fill: #00746b;
+}
