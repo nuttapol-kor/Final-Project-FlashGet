@@ -42,7 +42,7 @@
             <Label fx:id="urlLebel" text="URL to Download" />
             <TextField fx:id="urlField" prefHeight="26.0" prefWidth="250.0" />
             <Button fx:id="downloadButton" mnemonicParsing="false" onAction="#downloadPressed" text="Download" />
-            <Button fx:id="clearButtoon" mnemonicParsing="false" onAction="#clearPressed" text="Clear" />
+            <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearPressed" text="Clear" />
             <RadioButton fx:id="autoOption" mnemonicParsing="false" selected="true" text="Auto Thread">
                <toggleGroup>
                   <ToggleGroup fx:id="threadOption" />

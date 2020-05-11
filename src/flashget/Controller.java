@@ -41,7 +41,7 @@ public class Controller {
     private Button downloadButton;
 
     @FXML
-    private Button clearButtoon;
+    private Button clearButton;
 
     @FXML
     private Label filenameLabel;
@@ -100,7 +100,7 @@ public class Controller {
     @FXML
     public void initialize() {
         downloadButton.setOnAction(this::downloadPressed);
-        clearButtoon.setOnAction(this::clearPressed);
+        clearButton.setOnAction(this::clearPressed);
         cancelButton.setOnAction(this::cancelPressed);
         progressBar.setProgress(0.0);
         nThreadBox.setItems(threadNum);
