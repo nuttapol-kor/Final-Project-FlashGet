@@ -85,7 +85,7 @@ public class Controller {
     @FXML
     private ProgressBar threadProgressBar5;
 
-    private File initPath = null;
+    private File initPath = new File(System.getProperty("user.home"));
 
     private Task<Long>[] task;
 
