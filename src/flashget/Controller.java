@@ -166,8 +166,6 @@ public class Controller {
             } else { // pressed custom
                 managingThread(url, file, this.fileLength, nThreadBox.getValue());
             }
-//            // download with n thread
-//            managingThread(url, file, this.fileLength, 1);
             // show progress bar
             progressBar.setVisible(true);
             // set file name in label
