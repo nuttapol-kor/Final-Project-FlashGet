@@ -1,6 +1,8 @@
 package flashget;
 
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,6 +52,21 @@ public class Controller {
     @FXML
     private Button cancelButton;
 
+
+    @FXML
+    private RadioButton autoOption;
+
+    @FXML
+    private ToggleGroup threadOption;
+
+    @FXML
+    private RadioButton customOption;
+
+    @FXML
+    private ComboBox<Integer> nThreadBox;
+
+    private ObservableList<Integer> threadNum = FXCollections.observableArrayList(1,2,3,4,5);
+
     @FXML
     private Label threadLabel;
 
@@ -76,6 +93,7 @@ public class Controller {
 
     private long fileReach = 0;
 
+    private boolean isAutoThread;
     /**
      * Set action to all button
      */
@@ -85,6 +103,10 @@ public class Controller {
         clearButtoon.setOnAction(this::clearPressed);
         cancelButton.setOnAction(this::cancelPressed);
         progressBar.setProgress(0.0);
+        nThreadBox.setItems(threadNum);
+        nThreadBox.getSelectionModel().selectFirst();
+        autoOption.setOnAction(this::radioButtonPressed);
+        customOption.setOnAction(this::radioButtonPressed);
     }
 
     /**
@@ -105,6 +127,14 @@ public class Controller {
         URL url = null;
         // if text field is empty do noting.
         if (text.isEmpty()) return;
+        // visible all progress
+        threadProgressBar1.setVisible(false);
+        threadProgressBar2.setVisible(false);
+        threadProgressBar3.setVisible(false);
+        threadProgressBar4.setVisible(false);
+        threadProgressBar5.setVisible(false);
+        threadLabel.setVisible(false);
+        // set start
         this.fileLength = 0;
         // change string in text field to URL.
         try {
@@ -127,8 +157,17 @@ public class Controller {
                 // user pressed cancel button in file chooser
                 return; // leave
             }
-            // download with n thread
-            managingThread(url, file, this.fileLength, 5);
+            if (isAutoThread) { // pressed auto
+                if (this.fileLength < 50_000_000) {
+                    managingThread(url, file, this.fileLength, 1);
+                } else {
+                    managingThread(url, file, this.fileLength, 5);
+                }
+            } else { // pressed custom
+                managingThread(url, file, this.fileLength, nThreadBox.getValue());
+            }
+//            // download with n thread
+//            managingThread(url, file, this.fileLength, 1);
             // show progress bar
             progressBar.setVisible(true);
             // set file name in label
@@ -178,10 +217,6 @@ public class Controller {
         for (Task<Long> eachTask : task) {
             eachTask.cancel();
         }
-    }
-
-    public void messageChange(ObservableValue<? extends String> subject, String oldValue, String newValue) {
-        label.setText(newValue);
     }
 
     /**
@@ -279,5 +314,16 @@ public class Controller {
             this.initPath = file.getParentFile();
         }
         return file;
+    }
+
+    public void radioButtonPressed(ActionEvent event) {
+        if (autoOption.isSelected()) {
+            isAutoThread = true;
+            nThreadBox.setVisible(false);
+        }
+        if (customOption.isSelected()) {
+            isAutoThread = false;
+            nThreadBox.setVisible(true);
+        }
     }
 }

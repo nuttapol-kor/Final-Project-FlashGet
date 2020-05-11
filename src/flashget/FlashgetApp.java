@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -23,7 +24,9 @@ public class FlashgetApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/flashget/flashget.fxml"));
         primaryStage.setTitle("Multi-threaded file downloader");
         root.getStylesheets().add("/flashget/Theme.css");
-        primaryStage.setScene(new Scene(root, 800, 300));
+        Image icon = new Image(getClass().getResourceAsStream("/image/download.png"));
+        primaryStage.getIcons().add(icon);
+        primaryStage.setScene(new Scene(root, 850, 300));
         primaryStage.show();
     }
 
