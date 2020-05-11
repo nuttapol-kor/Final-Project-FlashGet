@@ -119,6 +119,8 @@ public class Controller {
         }
         // if url can download file length will > 0
         if (this.fileLength > 0) {
+            // reset file reach
+            this.fileReach = 0;
             // can download.
             File file = fileChooser(filename);
             if (file == null) {
@@ -212,7 +214,6 @@ public class Controller {
         progressBarList.add(threadProgressBar5);
         // show tread label
         threadLabel.setVisible(true);
-
         // loop to separate the n task to download
         for (int i = 0; i < nThread; i++) {
             task[i] = new DownloadTask(url, file, chunkSize * i, chunkSize);
