@@ -65,7 +65,7 @@ public class Controller {
     @FXML
     private ComboBox<Integer> nThreadBox;
 
-    private ObservableList<Integer> threadNum = FXCollections.observableArrayList(1,2,3,4,5);
+    private ObservableList<Integer> threadNum = FXCollections.observableArrayList(1, 2, 3, 4, 5);
 
     @FXML
     private Label threadLabel;
@@ -94,6 +94,7 @@ public class Controller {
     private long fileReach = 0;
 
     private boolean isAutoThread;
+
     /**
      * Set action to all button
      */

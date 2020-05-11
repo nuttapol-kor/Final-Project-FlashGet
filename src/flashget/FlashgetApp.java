@@ -16,6 +16,7 @@ public class FlashgetApp extends Application {
 
     /**
      * Start GUI
+     *
      * @param primaryStage background stage
      * @throws Exception throws exception when found the error
      */
@@ -32,6 +33,7 @@ public class FlashgetApp extends Application {
 
     /**
      * Main to run
+     *
      * @param args not used.
      */
     public static void main(String[] args) {
