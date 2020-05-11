@@ -1,0 +1,60 @@
+* {
+    -color : #2ecc71;
+    -white : #efefef;
+    -gray : #dfdfdf;
+    -darkGray : #a5a5a5;
+    -hoverGray : #c3c3c3;
+    -black : #444444dd;
+}
+
+.root{
+    -fx-background-color : -white;
+    -fx-fill-width : true;
+    /*-fx-color : -color;*/
+    -fx-fill-height : true;
+    -fx-font-family: 'Segoe UI';
+    /* remove the ugly focus shade */
+    -fx-focus-color : transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.label{
+    -fx-text-fill : -black;
+}
+
+.button {
+    -fx-background-color : -gray;
+}
+
+.button:hover {
+    -fx-background-color: -hoverGray;
+}
+
+.button:pressed, .button:default:hover:pressed{
+    -fx-background-color : -darkGray;
+}
+
+.radio-button>*.radio{
+    -fx-background-color : -gray;
+}
+
+.radio-button:selected>*.radio>*.dot{
+    -fx-background-color : -black;
+}
+
+.text-field{
+    -fx-highlight-fill : -gray;
+    -fx-highlight-text-fill : -black;
+}
+
+.progress-bar>*.bar{
+    -fx-background-color : -color;
+}
+
+.progress-bar>*.track{
+    -fx-background-color : -gray;
+}
+
+.combo-box {
+    -fx-background-color : -gray;
+}
