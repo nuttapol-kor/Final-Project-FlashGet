@@ -157,7 +157,7 @@ public class Controller {
             Alert fileSizeAlert = new Alert(Alert.AlertType.INFORMATION);
             fileSizeAlert.setTitle("File size");
             fileSizeAlert.setHeaderText(filename);
-            fileSizeAlert.setContentText(String.format("%s size %,d byte", filename, this.fileLength));
+            fileSizeAlert.setContentText(String.format("%s size : %,d byte", filename, this.fileLength));
             fileSizeAlert.showAndWait();
             // can download.
             File file = fileChooser(filename);
