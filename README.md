@@ -35,3 +35,28 @@ java --module-path C:\Users\USER\Documents\lib\javafx-sdk-11.0.2\lib --add-modul
 - 5 will show when user click the download button and input URL can download, it shows file name and process.
 - 6 is a cancel button to cancel the download process.
 - 7 show all threads progress bar that use to download.
+
+-----
+# UML Diagram
+![Imgur](https://i.imgur.com/SBZUX8k.png)
+
+----
+## Features
+-  Graphical UI where the user can choose a directory where to save the download.
+-  Before download, the user can check how large is the file he wants to download.
+-  Progress bars show download progress.
+-  Option to use thread for download
+
+## Technology Used
+-  Interface to shown used JavaFX and SceneBuilder
+-  Used css file to styling the GUI
+
+## Pattern
+-  command pattern
+-  observer pattern
+
+## Education Value
+- Learn how to use threads and random access file I/O.
+- Learn how to create a GUI with JavaFX.
+- Learn to use SceneBuilder
+- Learn to use css styling the GUI
