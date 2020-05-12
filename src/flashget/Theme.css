@@ -1,5 +1,5 @@
 * {
-    -color : #2ecc71;
+    -green : #2ecc71;
     -white : #efefef;
     -gray : #dfdfdf;
     -darkGray : #a5a5a5;
@@ -47,7 +47,7 @@
 }
 
 .progress-bar>*.bar{
-    -fx-background-color : -color;
+    -fx-background-color : -green;
 }
 
 .progress-bar>*.track{

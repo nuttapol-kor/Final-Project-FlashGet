@@ -65,6 +65,7 @@ public class Controller {
     @FXML
     private ComboBox<Integer> nThreadBox;
 
+    // item in combobox
     private ObservableList<Integer> threadNum = FXCollections.observableArrayList(1, 2, 3, 4, 5);
 
     @FXML
@@ -85,6 +86,7 @@ public class Controller {
     @FXML
     private ProgressBar threadProgressBar5;
 
+    // init path to save file
     private File initPath = new File(System.getProperty("user.home"));
 
     private Task<Long>[] task;
