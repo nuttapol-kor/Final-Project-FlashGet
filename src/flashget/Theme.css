@@ -10,7 +10,6 @@
 .root{
     -fx-background-color : -white;
     -fx-fill-width : true;
-    /*-fx-color : -color;*/
     -fx-fill-height : true;
     -fx-font-family: 'Segoe UI';
     /* remove the ugly focus shade */

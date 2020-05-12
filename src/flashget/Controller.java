@@ -96,7 +96,7 @@ public class Controller {
     private boolean isAutoThread;
 
     /**
-     * Set action to all button
+     * Initialize all component and set action to all button
      */
     @FXML
     public void initialize() {
@@ -315,6 +315,11 @@ public class Controller {
         return file;
     }
 
+    /**
+     * Option to use multithreaded to download Auto or custom
+     *
+     * @param event when user pressed radio button
+     */
     public void radioButtonPressed(ActionEvent event) {
         if (autoOption.isSelected()) {
             isAutoThread = true;
