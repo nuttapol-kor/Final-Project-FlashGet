@@ -93,7 +93,7 @@ public class Controller {
 
     private long fileReach = 0;
 
-    private boolean isAutoThread;
+    private boolean isAutoThread = true;
 
     /**
      * Initialize all component and set action to all button
@@ -142,16 +142,23 @@ public class Controller {
             url = new URL(text);
             URLConnection connection = url.openConnection();
             this.fileLength = connection.getContentLengthLong();
-        } catch (MalformedURLException ex) {
-            // if cannot connect print no protocol in console
-            System.err.println(ex.getMessage());
-        } catch (IOException ioe) {
-            System.out.println("Have some error in getContentLengthLong");
+        } catch (IOException ioe) { // show dialog when URL has an error
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Your URL can not download");
+            alert.setContentText("Please change your URL");
+            alert.showAndWait();
         }
         // if url can download file length will > 0
         if (this.fileLength > 0) {
             // reset file reach
             this.fileReach = 0;
+            // show user, how large is the file he want to download
+            Alert fileSizeAlert = new Alert(Alert.AlertType.INFORMATION);
+            fileSizeAlert.setTitle("File size");
+            fileSizeAlert.setHeaderText(filename);
+            fileSizeAlert.setContentText(String.format("%s size %,d byte", filename, this.fileLength));
+            fileSizeAlert.showAndWait();
             // can download.
             File file = fileChooser(filename);
             if (file == null) {
@@ -159,7 +166,7 @@ public class Controller {
                 return; // leave
             }
             if (isAutoThread) { // pressed auto
-                if (this.fileLength < 50_000_000) {
+                if (this.fileLength < 52_428_800) { // 50 MB
                     managingThread(url, file, this.fileLength, 1);
                 } else {
                     managingThread(url, file, this.fileLength, 5);
@@ -177,12 +184,6 @@ public class Controller {
             label.setVisible(true);
             // show cancel button
             cancelButton.setVisible(true);
-        } else { // if url cannot download show dialog.
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Alert");
-            alert.setHeaderText("Your URL can not download");
-            alert.setContentText("Please change your URL");
-            alert.showAndWait();
         }
     }
 
